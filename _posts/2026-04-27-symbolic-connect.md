@@ -1,7 +1,7 @@
 ---
 layout: distill
-title:  Symbolism Outside, Connectionism Inside: The Trend of Fusing LLMs and Automatic Programs with Symbolic Intermediate Representations
-description: This blog introduces the trend of fusing Large Language Models (LLMs) with external symbolic programs as a new paradigm in modern and future artificial intelligence (AI). This paradigm regards LLM output as a symbolic intermediate representation (IR), which is interpreted and executed by external symbolic programs to achieve the desired behavior. We firstly review and summarize the diverse applications of this paradigm. Then we introduce the more possible usages of this paradigm, from synthesizing grounded training data to composing modular systems of specialized neural networks. Finally, we introduce the frontier of this approach: applying formal methods to automatically verify the LLM's internal reasoning processes and outputs.
+title:  "Symbolism Outside, Connectionism Inside: The Trend of Fusing LLMs and Automatic Programs with Symbolic Intermediate Representations"
+description: "This blog introduces the trend of fusing Large Language Models (LLMs) with external symbolic programs as a new paradigm in modern and future artificial intelligence (AI). This paradigm regards LLM output as a symbolic intermediate representation (IR), which is interpreted and executed by external symbolic programs to achieve the desired behavior. We firstly review and summarize the diverse applications of this paradigm. Then we introduce the more possible usages of this paradigm, from synthesizing grounded training data to composing modular systems of specialized neural networks. Finally, we introduce the frontier of this approach: applying formal methods to automatically verify the LLM's internal reasoning processes and outputs."
 date: 2026-04-27
 future: true
 htmlwidgets: true
@@ -33,7 +33,7 @@ authors:
 #       name: IAS, Princeton
 
 # must be the exact same name as your blogpost
-bibliography: 2026-04-27-Blog-SymbolicConnect.bib
+bibliography: 2026-04-27-symbolic-connect.bib
 
 # Add a table of contents to your post.
 #   - make sure that TOC names match the actual section names
@@ -92,7 +92,7 @@ In contrast, **Connectionist AI** is inspired by the brain's structure and the e
 
 
 <figure style="text-align: center;">
-    <img src="{{ 'assets/img/2026-04-27-Blog-SymbolicConnect/SymbolicExamples.png' | relative_url }}" width="200">
+    <img src="{{ 'assets/img/2026-04-27-symbolic-connect/SymbolicExamples.png' | relative_url }}" width="200">
       <figcaption style="font-size: 1em;">Figure 1: LLM functions as a translator, converting natural language user requests into machine-executable symbolic languages. The top example shows the LLM generating an SQL query to retrieve structured data from a database, while the bottom example demonstrates the LLM using a sequence of Linux commands to fulfill an user request. In both cases, the outputs from the external tools are returned to the LLM, which then synthesizes the information into a final, grounded response or a concrete plan.</figcaption>
 </figure>
 
@@ -132,7 +132,7 @@ This loop creates a powerful symbiosis. The LLM provides a frictionless, intuiti
 
 
 <figure style="text-align: center;">
-    <img src="{{ 'assets/img/2026-04-27-Blog-SymbolicConnect/ToolUse.png' | relative_url }}" width="200">
+    <img src="{{ 'assets/img/2026-04-27-symbolic-connect/ToolUse.png' | relative_url }}" width="200">
       <figcaption style="font-size: 1em;">Figure 2: An LLM translates user requests into interpretable symbolic codes, such as JSON, XML, Python, Linux commands and others. The output is interpreted and executed by an interpreter, enabling the LLM to exploit a vast array of external tools and programs to automate complex, real-world tasks.</figcaption>
 </figure>
 
@@ -225,7 +225,7 @@ The paradigm of Large Language Models (LLMs) using external programs is undergoi
 
 
 <figure style="text-align: center;">
-    <img src="{{ 'assets/img/2026-04-27-Blog-SymbolicConnect/ModelsAsTools.png' | relative_url }}" width="200">
+    <img src="{{ 'assets/img/2026-04-27-symbolic-connect/ModelsAsTools.png' | relative_url }}" width="200">
       <figcaption style="font-size: 1em;">Figure 3: A Planner-Executor architecture where a central "Planner LLM" orchestrates the workflow for complex tasks. The Planner generates a structured plan (e.g., JSON) that an interpreter uses to sequentially call upon a variety of specialized neural networks, each acting as a distinct tool to solve a specific part of the problem..</figcaption>
 </figure>
 
@@ -298,7 +298,7 @@ This concept is supported by a strong theoretical foundation from the work of lo
 
 
 <figure style="text-align: center;">
-    <img src="{{ 'assets/img/2026-04-27-Blog-SymbolicConnect/AutoMatic.png' | relative_url }}" width="200">
+    <img src="{{ 'assets/img/2026-04-27-symbolic-connect/AutoMatic.png' | relative_url }}" width="200">
       <figcaption style="font-size: 1em;">Figure 4: A workflow for the automatic verification of a Large Language Model's reasoning. The LLM first generates a step-by-step reasoning chain, which an interpreter then translates into a formal language. This formal representation is subsequently passed to an automatic analyzer, like the Lean theorem prover, to mathematically validate the logical soundness of the entire argument.</figcaption>
 </figure>
 
