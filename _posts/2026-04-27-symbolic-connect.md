@@ -40,19 +40,19 @@ bibliography: 2026-04-27-symbolic-connect.bib
 #     for hyperlinks within the post to work correctly.
 #   - please use this format rather than manually creating a markdown table of contents.
 toc:
-  - name: The connectionism and symbolism in Artificial Intelligence
-  - name: Procedures and Examples of Fusing LLMs and Automatic Programs
+  - name: "The connectionism and symbolism in Artificial Intelligence"
+  - name: "Procedures and Examples of Fusing LLMs and Automatic Programs"
     subsections:
-      - name: The Core Loop: User Input, Translation, Execution, and Grounding
-      - name: Applicationss in Different Domains
-  - name: Synthesizing Data with Programs for Agentic Training
-  - name: Connecting Specialized Neural Networks with Symbolic IRs
+      - name: "The Core Loop: User Input, Translation, Execution, and Grounding"
+      - name: "Applicationss in Different Domains"
+  - name: "Synthesizing Data with Programs for Agentic Training"
+  - name: "Connecting Specialized Neural Networks with Symbolic IRs"
     subsections:
-      - name: Neural Networks as Specialized Agents
-      - name: The Planner-Executor Architecture
-      - name: Modularity, Specialization, and Scalability
-  - name: Towards Verifiable Reasoning with External Programs
-  - name: Conclusion
+      - name: "Neural Networks as Specialized Agents"
+      - name: "The Planner-Executor Architecture"
+      - name: "Modularity, Specialization, and Scalability"
+  - name: "Towards Verifiable Reasoning with External Programs"
+  - name: "Conclusion"
 
 
 # Below is an example of injecting additional post-specific styles.
