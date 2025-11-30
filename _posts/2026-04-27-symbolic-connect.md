@@ -117,9 +117,9 @@ This allows them to function as *semantic translators*, converting fuzzy human i
 1.  **Macro-Symbolism (System Level):** The LLM becomes a *Planner*, deciding when and how to call a database, a coder interpreter, a JSON API request, or which specialized model to invoke. In effect, it routes tasks across a society of tools and agents.
 2.  **Micro-Symbolism (Model Level):** Inside the LLM itself, we see a shift from dense monoliths to modular, sparse structures. Mixture-of-Experts (MoE) architectures introduce explicit routers that choose which internal “experts” to activate, while mechanistic interpretability reveals latent circuits that already behave like implicit modules.
 
-<figure style="text-align: center;">
-<img src="{{ 'assets/img/2026-04-27-symbolic-connect/SymbolicExamples.png' | relative_url }}" width="100%">
-<figcaption style="font-size: 1em;">Figure 1: The LLM as a semantic translator. It converts natural language requests into symbolic forms (e.g., SQL, Python, JSON) that deterministic tools can execute. The verified outputs are then folded back into the final answer.</figcaption>
+<figure style="text-align: center; width: 100%;">
+  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/SymbolicExamples.png' | relative_url }}" style="width: 95%;">
+  <figcaption style="font-size: 1em;">Figure 1: The LLM as a semantic translator. It converts natural language requests into symbolic forms (e.g., SQL, Python, JSON) that deterministic tools can execute. The verified outputs are then folded back into the final answer.</figcaption>
 </figure>
 
 In this post, we explore how this shift—from dense models to routed, modular minds—is reshaping both AI systems and the models that power them.
@@ -163,9 +163,9 @@ Connectionist models excel at pattern recognition but struggle with tasks that d
 **Dynamic extensibility.**
 Finally, symbolic routing breaks the “parametric knowledge boundary”. Instead of retraining the model every time the world changes, we can hook it up to new tools by defining new schemas and APIs. Adding a live stock feed, a proprietary enterprise database, or a theorem prover becomes a matter of describing the interface, not touching the weights. The LLM evolves from a static text generator into an agentic controller of external systems.
 
-<figure style="text-align: center;">
-<img src="{{ 'assets/img/2026-04-27-symbolic-connect/ToolUse.png' | relative_url }}" width="80%">
-<figcaption style="font-size: 1em;">Figure 2: The tool-use paradigm. The LLM translates user requests into symbolic codes (JSON, Python, Shell), which are executed by deterministic programs. Their outputs are then folded back into the model's response, grounding it in verifiable computation.</figcaption>
+<figure style="text-align: center; width: 100%;">
+  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/ToolUse.png' | relative_url }}" style="width: 60%;">
+  <figcaption style="font-size: 1em;">Figure 2: The tool-use paradigm. The LLM translates user requests into symbolic codes (JSON, Python, Shell), which are executed by deterministic programs. Their outputs are then folded back into the model's response, grounding it in verifiable computation.</figcaption>
 </figure>
 
 #### Applications: From Fuzzy Language to Interpretable Actions
@@ -242,9 +242,9 @@ In an MoE Transformer, the standard feed-forward layer is replaced by a collecti
 
 These routing decisions create a quasi-symbolic bottleneck inside the network: each token is explicitly assigned to a small set of experts. Different experts can specialize in different sub-functions (e.g., syntax, factual or procedural knowledge), while the router learns to compose them on the fly. Rather than learning every new task from scratch, the model can solve novel problems by recombining pre-learned functions, much like assembling Lego blocks <d-cite key="hahn2023theory,li2024what,chen2024skills"></d-cite>. This structural disentanglement brings the model's internal behavior closer to the compositional way humans reuse skills.
 
-<figure style="text-align: center;">
-<img src="{{ 'assets/img/2026-04-27-symbolic-connect/InterSymbols.pdf' | relative_url }}" width="80%">
-<figcaption style="font-size: 1em;">Figure 3: <strong>Micro-symbolism</strong>. LLMs use routers to disentangle and call different modules to clearly process different functions.</figcaption>
+<figure style="text-align: center; width: 100%;">
+  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/InterSymbols.pdf' | relative_url }}" style="width: 60%;">
+  <figcaption style="font-size: 1em;">Figure 3: <strong>Micro-symbolism</strong>. LLMs use routers to disentangle and call different modules to clearly process different functions.</figcaption>
 </figure>
 
 ### The Implicit Router: Discovering Latent Modularity
@@ -341,9 +341,9 @@ The core idea is simple: let the LLM reason in natural language, but verify its 
 
 This idea has deep roots. Richard Montague's work in the 1970s argued that natural language could, in principle, be given a model-theoretic semantics as rigorous as that of programming languages <d-cite key="kim2020montague,SasagawaMontagueGrammar,Janssen2017MontagueSemantics"></d-cite>. For decades, this was more philosophy than practice. Modern LLMs, however, provide the missing bridge: models such as LogicLLaMA can map messy, ambiguous English sentences into the rigid world of formal logic well enough to support automated reasoning <d-cite key="yang-etal-2024-harnessing,Brunello2024TranslatingNL,quan-etal-2024-verification"></d-cite>.
 
-<figure style="text-align: center;">
-<img src="{{ 'assets/img/2026-04-27-symbolic-connect/AutoMatic.png' | relative_url }}" width="80%">
-<figcaption style="font-size: 1em;">Figure 4: The verification loop. LLMs propose a natural language argument. A formalizer translates it into logic, which is then checked by a theorem prover. Feedback from the prover guides correction.</figcaption>
+<figure style="text-align: center; width: 100%;">
+  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/AutoMatic.png' | relative_url }}" style="width: 70%;">
+  <figcaption style="font-size: 1em;">Figure 4: The verification loop. LLMs propose a natural language argument. A formalizer translates it into logic, which is then checked by a theorem prover. Feedback from the prover guides correction.</figcaption>
 </figure>
 
 #### The Verification Workflow
