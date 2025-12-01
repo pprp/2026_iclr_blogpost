@@ -1,7 +1,7 @@
 ---
 layout: distill
 title:  "From Dense Monoliths to Modular Minds: The Rise of Symbolic Routing in LLMs"
-description: "The history of Artificial Intelligence (AI) has largely been defined by a dichotomy: the flexible, probabilistic learning of Connectionism versus the rigorous, compositional logic of Symbolism. However, the emergence of Large Language Models (LLMs) is fostering a synthesis of these paradigms through a fundamental architectural shift: the move from Dense Monoliths to Modular, Routed Systems. This shift is fractal. At the Macro level, LLMs function as central planners, using symbolic protocols to orchestrate external tools and specialized neural agents. Simultaneously, at the Micro level, the models themselves are evolving into sparse, modular structures (such as Mixture-of-Experts) governed by internal routing mechanisms. In this post, we explore this transition toward Symbolic Routing. We discuss how this paradigm enables us to build societies of neural agents, discover latent modularity within dense networks, and leverage these structures to synthesize grounded training data and formally verify AI reasoning."
+description: "The history of Artificial Intelligence (AI) has largely been defined by a dichotomy: the flexible, probabilistic learning of Connectionism versus the rigorous, compositional logic of Symbolism. However, the emergence of Large Language Models (LLMs) is fostering a synthesis of these paradigms through a fundamental architectural shift: the move from Dense Monoliths to Modular, Routed Systems. This shift is fractal. At the Macro level, LLMs function as central planners, using symbolic protocols to orchestrate external tools and specialized neural agents. Simultaneously, at the Micro level, the models themselves are evolving into sparse, modular structures (such as Mixture-of-Experts) governed by internal routing mechanisms. In this post, we explore this transition toward Symbolic Routing. We discuss how this paradigm enables us to build societies of neural agents, discover latent modularity within dense networks, thus enabling composable, verifiable, interpretable and continually learnable AI system. And we also discuss how to leverage these structures to synthesize training data and formally verify AI reasoning."
 date: 2026-04-27
 future: true
 htmlwidgets: true
@@ -61,9 +61,9 @@ toc:
         subsections:
           - name: "Refactoring the Monolith"
           - name: "Structured Reasoning Controllers"
-  - name: "Closing the Loop: Grounded Synthesis and Formal Verification"
+  - name: "Automatic Data Synthesis and Formal Verification"
     subsections:
-      - name: "Grounded Training: Program-Aided Data Synthesis"
+      - name: "Program-Aided Data Synthesis"
         subsections:
           - name: "The Mechanism: From Text to Trajectories"
           - name: "The Curriculum: Agentic Continual Pre-training"
@@ -124,7 +124,7 @@ This allows them to function as *semantic translators*, converting fuzzy human i
 
 In this post, we explore how this shift—from dense models to routed, modular minds—is reshaping both AI systems and the models that power them.
 We start with *Macro-Symbolism*: the probabilistic-deterministic loop that lets LLMs ground their answers in external tools and orchestrate specialized neural agents.
-Then we zoom in to *Micro-Symbolism*: how routing and modularity are emerging inside the model itself, from explicit MoE experts to latent circuits discovered via interpretability. We discuss how these two kinds of symbolism benefit future LLM system. Finally, we discuss how these routed architectures enable two critical capabilities for the next generation of AI systems: *grounded data synthesis* and *verified reasoning*.
+Then we zoom in to *Micro-Symbolism*: how routing and modularity are emerging inside the model itself, from explicit MoE experts to latent circuits discovered via interpretability. We discuss how these two kinds of symbolism benefit future LLM system. Finally, we discuss how these routed architectures enable two critical capabilities for the next generation of AI systems: *automatic data synthesis* and *verified reasoning*.
 
 ## Macro-Symbolism: The Planner-Executor Paradigm
 
@@ -294,15 +294,15 @@ Instead of letting information diffuse across all layers, the controller would e
 
 If Macro-Symbolism systems are for orchestrate tools and agents, Micro-Symbolism aims for models whose *internal* operations follow similarly modular, interpretable patterns. They point toward AI systems that do not just imitate correct answers, but earn them through structured reasoning.
 
-## Closing the Loop: Grounded Synthesis and Formal Verification
+## Automatic Data Synthesis and Formal Verification
 
 The move from purely connectionist black boxes to neuro-symbolic systems is not just an architectural shift; it changes *how* models learn and *how* we trust them. Whether we look at *Macro-Symbolism* (agents and tools) or *Micro-Symbolism* (MoE and circuits), two basic questions remain: *where does the data come from*, and *how do we know the answer is actually correct?*
 
 The structured protocols that we have discussed above could do more than improve performance. They provide a foundation for two complementary capabilities:
-*grounded synthesis*, where models generate data via simulation rather than hallucination, and
+*automatic data synthesis*, where models generate data via formal structure and automatic programs, and
 *formal verification*, where we check their reasoning using logical proofs.
 
-### Grounded Training: Program-Aided Data Synthesis
+### Program-Aided Data Synthesis
 
 High-quality human text is finite, and much of it has already been scraped. Synthetic data is the natural next step, but naive approaches—“ask an LLM to write more text like the internet”—risk *model collapse*, where models amplify their own artifacts and drift away from reality <d-cite key="Nadas2025SyntheticData,BerdanierSyntheticData,su2025scaling"></d-cite>.
 
@@ -320,14 +320,14 @@ In all three cases, we are no longer training on what people happened to write. 
 
 #### The Curriculum: Agentic Continual Pre-training
 
-Once we can generate large numbers of grounded trajectories, a natural next step is to use them to continually refine the base model itself. *Agentic Continual Pre-training (Agentic CPT)* <d-cite key="su2025scaling"></d-cite> immerses an LLM in synthetic experiences that reflect the full agent loop: planning, acting, observing, and correcting.
+Once we can generate large numbers of automatic trajectories, a natural next step is to use them to continually refine the base model itself. *Agentic Continual Pre-training (Agentic CPT)* <d-cite key="su2025scaling"></d-cite> immerses an LLM in synthetic experiences that reflect the full agent loop: planning, acting, observing, and correcting.
 Instead of optimizing only for next-token prediction, the model is trained to internalize the *agentic workflow*:
 
 1.  **Multi-turn tool use.** Learning that the output of Tool A (e.g., search) should be fed into Tool B (e.g., code or analysis), and that actions have consequences over multiple steps.
 2.  **Reflection and correction.** When a tool call fails, the training data includes the model's debugging and self-correction process, teaching it how to recover from mistakes <d-cite key="novikov2025alphaevolve"></d-cite>.
 3.  **Goal clarification.** In ambiguous situations, successful trajectories may include the model asking clarifying questions rather than acting prematurely.
 
-This shifts the training signal from *what people say* to *what successful agents do*. Grounded synthesis turns symbolic routing into a data engine.
+This shifts the training signal from *what people say* to *what successful agents do*. Automatic data synthesis turns symbolic routing into a data engine.
 
 ### Verified Inference: The Logic of Truth
 
@@ -357,7 +357,7 @@ Putting this into practice suggests a verification loop:
 
 The same pattern extends beyond pure mathematics. In fact-checking, natural language claims can be translated into queries over structured knowledge bases, with symbolic systems checking consistency against trusted sources <d-cite key="ou2025holmes,COLINGLOKI"></d-cite>. In all cases, the key shift is the same: we no longer trust an answer because it *sounds* confident, but because its reasoning has been checked against a formal standard.
 
-Grounded synthesis and verified inference close the loop on neuro-symbolic AI. The former turns tools and simulations into a source of reliable training data; the latter turns logic and proofs into a way to certify reasoning at test time. Together with macro- and micro-symbolism, they sketch a path toward AI systems that are not only powerful, but also grounded and trustworthy.
+Automatic data synthesis and verified inference close the loop on neuro-symbolic AI. The former turns tools and simulations into a source of reliable training data; the latter turns logic and proofs into a way to certify reasoning at test time. Together with macro- and micro-symbolism, they sketch a path toward AI systems that are not only powerful, but also grounded and trustworthy.
 
 ## Conclusion
 
@@ -365,7 +365,7 @@ The integration of LLMs with structured protocols marks a turning point in how w
 
 At the **Macro** level, this means LLMs acting as planners: translating human intent into symbolic representations, coordinating tools, and orchestrating specialized neural agents. At the **Micro** level, the same logic appears within the models themselves, from explicit MoE routers to the latent circuits uncovered through interpretability.
 
-Together, these trends open the door to two capabilities that dense models struggled to provide: *grounded synthesis*, where data is generated through code and simulation rather than speculation, and *verified inference*, where reasoning can be checked against formal logic.
+Together, these trends open the door to two capabilities that dense models struggled to provide: *automatic data synthesis*, where data is generated through code and simulation rather than speculation, and *verified inference*, where reasoning can be checked against formal logic.
 
 The path forward is not about choosing between neurons and symbols. It is about building the interfaces that let them work together—systems that can plan, reason, verify, and learn in structured, interpretable ways. As routing becomes a central organizing principle, AI moves closer to something genuinely trustworthy: intelligence that can explain how it works, not just what it outputs.
 
