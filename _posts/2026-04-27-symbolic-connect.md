@@ -112,7 +112,7 @@ However, symbolic systems are notoriously brittle, struggling with the ambiguity
 Its strength lies in *flexibility and robustness*, excelling at unstructured data like images and text. Yet, they face the *“black box” problem* <d-cite key="singh2024rethinking"></d-cite>. Knowledge is diffused across billions of opaque weights, making reasoning difficult to trace and prone to “hallucinations” <d-cite key="huang2025survey"></d-cite>.
 
 Today, we are seeing a third phase emerge: **the rise of the router**. Modern LLMs possess an emergent mastery of both distributional representations and discrete tokens (e.g., code, SQL, JSON) <d-cite key="lee2025symba,hu-etal-2025-os"></d-cite>.
-This allows them to function as *semantic translators*, converting fuzzy human intent into precise intermediate symbolic protocols for execution. Crucially, this translation mechanism is reshaping AI architecture at two distinct scales:
+This allows them to function as *semantic translators*, converting fuzzy human intent into precise intermediate symbolic protocols for execution as shown in Figure 1. Crucially, this translation mechanism is reshaping AI architecture at two distinct scales:
 
 1.  **Macro-Symbolism (System Level):** The LLM becomes a *Planner*, deciding when and how to call a database, a coder interpreter, a JSON API request, or which specialized model to invoke. In effect, it routes tasks across a society of tools and agents.
 2.  **Micro-Symbolism (Model Level):** Inside the LLM itself, we see a shift from dense monoliths to modular, sparse structures. Mixture-of-Experts (MoE) architectures introduce explicit routers that choose which internal “experts” to activate, while mechanistic interpretability reveals latent circuits that already behave like implicit modules.
@@ -143,7 +143,7 @@ In practice, this routing happens in two main ways:
 
 Despite their linguistic prowess, standalone LLMs remain limited: their knowledge is frozen at training time, they are prone to confident hallucinations, and they are effectively “brains in a jar”, disconnected from the external world. The hybrid neural–symbolic paradigm addresses these issues by pairing the flexibility of LLMs with the rigor of deterministic programs <d-cite key="xu2024symbol,de2025tool,schick2023toolformer"></d-cite>.
 
-In this architecture, the LLM serves as an intuitive *semantic interface*, while the external program (a search engine, database, Python interpreter, or theorem prover) plays the role of *verifiable executor*. The key step is translation: the LLM converts user intent into a precise, logically interpretable symbolic intermediate representation (IR).
+In this architecture as shown in Figure 2, the LLM serves as an intuitive *semantic interface*, while the external program (a search engine, database, Python interpreter, or theorem prover) plays the role of *verifiable executor*. The key step is translation: the LLM converts user intent into a precise, logically interpretable symbolic intermediate representation (IR).
 
 #### The Four-Stage Cycle: Input, Translation, Execution, Grounding
 
@@ -243,7 +243,7 @@ In an MoE Transformer, the standard feed-forward layer is replaced by a collecti
 These routing decisions create a quasi-symbolic bottleneck inside the network: each token is explicitly assigned to a small set of experts. Different experts can specialize in different sub-functions (e.g., syntax, factual or procedural knowledge), while the router learns to compose them on the fly. Rather than learning every new task from scratch, the model can solve novel problems by recombining pre-learned functions, much like assembling Lego blocks <d-cite key="hahn2023theory,li2024what,chen2024skills"></d-cite>. This structural disentanglement brings the model's internal behavior closer to the compositional way humans reuse skills.
 
 <figure style="text-align: center; width: 100%;">
-  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/InterSymbols.pdf' | relative_url }}" style="width: 60%;">
+  <img src="{{ 'assets/img/2026-04-27-symbolic-connect/InterSymbols.png' | relative_url }}" style="width: 60%;">
   <figcaption style="font-size: 1em;">Figure 3: <strong>Micro-symbolism</strong>. LLMs use routers to disentangle and call different modules to clearly process different functions.</figcaption>
 </figure>
 
@@ -337,7 +337,7 @@ The final step in the neuro-symbolic story is to apply the same translation mach
 
 #### Theoretical Foundations: From Natural Language to Formal Logic
 
-The core idea is simple: let the LLM reason in natural language, but verify its reasoning in a formal system. Concretely, we translate the model's explanations into a symbolic language such as first-order logic or the tactic language of a proof assistant like Lean <d-cite key="Yang2023LeanDojo,lee2025symba,pan2023logic"></d-cite>.
+The core idea is simple: let the LLM reason in natural language, but verify its reasoning in a formal system as shown in Figure 4. Concretely, we translate the model's explanations into a symbolic language such as first-order logic or the tactic language of a proof assistant like Lean <d-cite key="Yang2023LeanDojo,lee2025symba,pan2023logic"></d-cite>.
 
 This idea has deep roots. Richard Montague's work in the 1970s argued that natural language could, in principle, be given a model-theoretic semantics as rigorous as that of programming languages <d-cite key="kim2020montague,SasagawaMontagueGrammar,Janssen2017MontagueSemantics"></d-cite>. For decades, this was more philosophy than practice. Modern LLMs, however, provide the missing bridge: models such as LogicLLaMA can map messy, ambiguous English sentences into the rigid world of formal logic well enough to support automated reasoning <d-cite key="yang-etal-2024-harnessing,Brunello2024TranslatingNL,quan-etal-2024-verification"></d-cite>.
 
