@@ -40,37 +40,17 @@ toc:
   - name: "Macro-Symbolism: The Planner-Executor Paradigm"
     subsections:
       - name: "The Core Mechanism: The Probabilistic–Deterministic Loop"
-        subsections:
-          - name: "The Four-Stage Cycle: Input, Translation, Execution, Grounding"
-          - name: "Applications: From Fuzzy Language to Interpretable Actions"
       - name: "Scaling to Neural Modules: The Agentic Workflow"
-        subsections:
-          - name: "Wrapping Neural Networks in Symbolic Interfaces"
-          - name: "The Orchestration Workflow"
-          - name: "Why Modular AI Wins"
       - name: "The Future: The Rise of the LLM-OS"
   - name: "Micro-Symbolism: The Internal Routing Paradigm"
     subsections:
       - name: "The Explicit Router: Mixture-of-Experts (MoE)"
       - name: "The Implicit Router: Discovering Latent Modularity"
-        subsections:
-          - name: "The Cost of Entanglement: Shortcut Learning"
-          - name: "Uncovering the Latent Router"
-          - name: "From Entanglement to Circuit Discovery"
       - name: "The Future: Post-Hoc Modularization and Structured Control"
-        subsections:
-          - name: "Refactoring the Monolith"
-          - name: "Structured Reasoning Controllers"
   - name: "Automatic Data Synthesis and Formal Verification"
     subsections:
       - name: "Program-Aided Data Synthesis"
-        subsections:
-          - name: "The Mechanism: From Text to Trajectories"
-          - name: "The Curriculum: Agentic Continual Pre-training"
       - name: "Verified Inference: The Logic of Truth"
-        subsections:
-          - name: "Theoretical Foundations: From Natural Language to Formal Logic"
-          - name: "The Verification Workflow"
   - name: "Conclusion"
 
 
@@ -145,9 +125,7 @@ Despite their linguistic prowess, standalone LLMs remain limited: their knowledg
 
 In this architecture as shown in Figure 2, the LLM serves as an intuitive *semantic interface*, while the external program (a search engine, database, Python interpreter, or theorem prover) plays the role of *verifiable executor*. The key step is translation: the LLM converts user intent into a precise, logically interpretable symbolic intermediate representation (IR).
 
-#### The Four-Stage Cycle: Input, Translation, Execution, Grounding
-
-Most tool-augmented systems follow the same four-stage loop:
+**The Four-Stage Cycle: Input, Translation, Execution, Grounding.** Most tool-augmented systems follow the same four-stage loop:
 
 1.  **User input (fuzzy intent).** A person describes a goal in natural language, such as “How did our European sales do last quarter?” or “Help me clean up my hard drive.”
 2.  **Translation (symbolic bridge).** The LLM acts as a natural-to-formal compiler, turning this fuzzy request into an unambiguous IR: a SQL query, a Python script, or a JSON API call.
@@ -168,9 +146,7 @@ Finally, symbolic routing breaks the “parametric knowledge boundary”. Instea
   <figcaption style="font-size: 1em;">Figure 2: The tool-use paradigm. The LLM translates user requests into symbolic codes (JSON, Python, Shell), which are executed by deterministic programs. Their outputs are then folded back into the model's response, grounding it in verifiable computation.</figcaption>
 </figure>
 
-#### Applications: From Fuzzy Language to Interpretable Actions
-
-Although the tools differ, the same probabilistic–deterministic loop appears across many domains:
+**Applications: From Fuzzy Language to Interpretable Actions**. Although the tools differ, the same probabilistic–deterministic loop appears across many domains:
 
   * **Information access.** The model converts questions into search queries or Text-to-SQL statements, then grounds its answers in retrieved web pages or database rows <d-cite key="Survey-LLM-Text-to-SQL,hong2025next"></d-cite>.
   * **Code and data analysis.** Instead of doing arithmetic in its head, the LLM writes and runs Python in a sandbox, using the results to answer questions about files, logs, or datasets <d-cite key="OpenAICookbookCodeInterpreter"></d-cite>.
@@ -183,9 +159,7 @@ Across all of these, the pattern is the same: the LLM transform fuzzy human lang
 
 So far we have focused on tools like databases, search engines, and interpreters. The next step is to treat *other neural networks* as tools as well. Instead of building a single, monolithic model that tries to do everything, we can compose smaller experts behind symbolic interfaces. This mirrors the evolution of software from monoliths to microservices <d-cite key="Blueprint"></d-cite>.
 
-#### Wrapping Neural Networks in Symbolic Interfaces
-
-Any system that accepts structured input and produces predictable output can be wrapped in an API definition. This lets a central planner treat highly specialized models as if they were ordinary Python functions <d-cite key="WhiteLLMFunctionCalling,shen2023hugginggpt,shen2024small"></d-cite>. Examples include:
+**Wrapping Neural Networks in Symbolic Interfaces**. Any system that accepts structured input and produces predictable output can be wrapped in an API definition. This lets a central planner treat highly specialized models as if they were ordinary Python functions <d-cite key="WhiteLLMFunctionCalling,shen2023hugginggpt,shen2024small"></d-cite>. Examples include:
 
   * **Perception.** Vision and audio models (CNNs, ViTs, speech recognizers) perform OCR, object detection, or transcription more efficiently than a general-purpose multimodal LLM <d-cite key="he2016deep,dosovitskiy2020image,radford2023robust"></d-cite>.
   * **Generative media.** Diffusion models act as the system's “imagination”, turning text prompts into high-fidelity images or videos <d-cite key="ramesh2021zero,rombach2022high"></d-cite>.
@@ -193,9 +167,7 @@ Any system that accepts structured input and produces predictable output can be 
 
 From the planner's perspective, these are all just callable tools: each has a name, an input schema, and an output schema.
 
-#### The Orchestration Workflow
-
-Consider a user who uploads a quarterly earnings PDF and asks: *“Analyze this report, identify the main revenue drivers, plot them, and draft a press release.”* A planner LLM can handle this without doing every step itself:
+**The Orchestration Workflow**. Consider a user who uploads a quarterly earnings PDF and asks: *“Analyze this report, identify the main revenue drivers, plot them, and draft a press release.”* A planner LLM can handle this without doing every step itself:
 
 1.  **Decompose the task.** The planner breaks the request into subtasks: extract text from the PDF, analyze the financial data, generate a plot, and write the press release <d-cite key="Huang_Lipovetzky_Cohn_2025,SaMSolutionsAgentic"></d-cite>.
 2.  **Call the right experts.** It routes the document to an OCR or document-understanding model, passes the extracted tables to a financial-analysis agent or code interpreter, and uses a plotting tool to generate visuals <d-cite key="AnalyticsVidhyaFunctionCalling,xu2024symbol,kim2024llm"></d-cite>.
@@ -203,9 +175,7 @@ Consider a user who uploads a quarterly earnings PDF and asks: *“Analyze this 
 
 Throughout this process, the planner does not need to know how OCR, financial modeling, or plotting work internally. It only needs to understand how to speak the right symbolic language to each expert and how to route information between them.
 
-#### Why Modular AI Wins
-
-Shifting from a monolithic “God Model” to a modular system of agents offers profound engineering advantages, validating the macro-symbolic approach <d-cite key="KumarMultiAgent,WhiteLLMFunctionCalling"></d-cite>:
+**Why Modular AI Wins**. Shifting from a monolithic “God Model” to a modular system of agents offers profound engineering advantages, validating the macro-symbolic approach <d-cite key="KumarMultiAgent,WhiteLLMFunctionCalling"></d-cite>:
 
   * **Performance via specialization.** Dedicated perception or domain models typically outperform generalist LLMs on their home tasks. Divide-and-conquer yields higher quality.
   * **Efficiency and cost.** There is no need to invoke a trillion-parameter model to perform simple OCR or schema extraction. Routing lightweight tasks to small experts reduces latency and compute.
@@ -251,24 +221,18 @@ These routing decisions create a quasi-symbolic bottleneck inside the network: e
 
 Most current LLMs, however, are still dense transformers with no explicit MoE layers. At first glance, they look like undifferentiated blocks where every unit talks to every other. Yet mechanistic interpretability work suggests that even these dense models spontaneously develop a *latent modular structure* <d-cite key="elhage2021mathematical,hou2022has,wang2023interpretability,qiu2024unlocking"></d-cite>. The challenge of implicit micro-symbolism is to uncover and shape this hidden structure.
 
-#### The Cost of Entanglement: Shortcut Learning
-
-Without clear internal boundaries, dense models often learn “shortcuts”: heuristics that work on the training distribution but fail under shift. Consider multimodal models analyzing charts. When shown a scatter plot of population data, a model might confidently call it a “line graph” simply because the caption mentions “population” and the points trend upward.
+**The Cost of Entanglement: Shortcut Learning**. Without clear internal boundaries, dense models often learn “shortcuts”: heuristics that work on the training distribution but fail under shift. Consider multimodal models analyzing charts. When shown a scatter plot of population data, a model might confidently call it a “line graph” simply because the caption mentions “population” and the points trend upward. 
 
 We can view this as a **routing failure**. The model likely contains a perceptual circuit capable of distinguishing dots from lines, but the internal controller does not reliably route the signal through it. Instead, the model takes an easier path: a *linguistic shortcut* (“population” $\Rightarrow$ line graph) or a *prior-knowledge shortcut* (populations usually grow). Because the “seeing” circuit and the “guessing” circuit are entangled, the stronger heuristic overrides perception.
 
-#### Uncovering the Latent Router
-
-These failures do not mean that dense models are structureless. They indicate that the structure is *latent* and poorly controlled. Careful probing shows that transformers already organize themselves in modular ways:
+**Uncovering the Latent Router.** These failures do not mean that dense models are structureless. They indicate that the structure is *latent* and poorly controlled. Careful probing shows that transformers already organize themselves in modular ways:
 
   * **Layer-wise specialization.** Early layers often behave like syntactic parsers, tracking word order and surface form, while deeper layers encode more abstract semantics and factual knowledge <d-cite key="tenney2019bert,hou2021bird,meng2022locating"></d-cite>.
   * **Procedural traces.** In multi-step reasoning tasks, specific attention heads in LLMs track particular stages of inference, effectively acting as registers for intermediate variables <d-cite key="olsson2022context,hou2023towards"></d-cite>.
 
 Viewed this way, the attention mechanism itself functions as a soft, continuous *implicit router*. By choosing where to attend in the residual stream, attention heads route information between different subspaces—syntactic, semantic, factual, or task-specific.
 
-#### From Entanglement to Circuit Discovery
-
-Micro-symbolism in dense models is therefore an analytical project. By applying tools from mechanistic interpretability, we can “symbolize” parts of the network: map directions in activation space to human-interpretable concepts (a gender direction, a previous-token head, a negation circuit) <d-cite key="elhage2021mathematical,conmy2023automated,wang2023interpretability"></d-cite>. This turns the model from a pure black box into a “grey box” with identifiable components and interfaces.
+**From Entanglement to Circuit Discovery.** Micro-symbolism in dense models is therefore an analytical project. By applying tools from mechanistic interpretability, we can “symbolize” parts of the network: map directions in activation space to human-interpretable concepts (a gender direction, a previous-token head, a negation circuit) <d-cite key="elhage2021mathematical,conmy2023automated,wang2023interpretability"></d-cite>. This turns the model from a pure black box into a “grey box” with identifiable components and interfaces.
 
 Identifying these latent modules is the first step toward a more ambitious goal: *post-hoc modularization*, where we turn discovered circuits into explicit, controllable building blocks.
 
@@ -276,9 +240,7 @@ Identifying these latent modules is the first step toward a more ambitious goal:
 
 If dense models already approximate modularity internally, a natural next step is to make that structure explicit. **Post-hoc modularization** imagines taking a pretrained model and refactoring it into a transparent, composable cognitive system.
 
-#### Refactoring the Monolith
-
-Standard training optimizes for end-to-end loss, often at the expense of clean internal structure. Post-hoc modularization reverses this: using interpretability tools, we identify circuits for specific capabilities: arithmetic <d-cite key="stolfo2023mechanistic"></d-cite>, visual binding <d-cite key="rajaram2024automatic,saravanan2025investigating"></d-cite>, or factual recall <d-cite key="meng2022locating"></d-cite>, and encapsulate them as separate modules.
+**Refactoring the Monolith**. Standard training optimizes for end-to-end loss, often at the expense of clean internal structure. Post-hoc modularization reverses this: using interpretability tools, we identify circuits for specific capabilities: arithmetic <d-cite key="stolfo2023mechanistic"></d-cite>, visual binding <d-cite key="rajaram2024automatic,saravanan2025investigating"></d-cite>, or factual recall <d-cite key="meng2022locating"></d-cite>, and encapsulate them as separate modules.
 
 This process turns the “art of alchemy” into something closer to software engineering. Once a capability is disentangled, it becomes:
 
@@ -286,9 +248,7 @@ This process turns the “art of alchemy” into something closer to software en
   * **Repairable:** if a circuit encodes a bias or persistent error, we can patch it without retraining the whole model <d-cite key="wu2024continual"></d-cite>.
   * **Composable:** robust modules can be reused across tasks or even modalities—for example, reusing a math circuit for text and vision. This aligns with ideas in model merging and adapters <d-cite key="zhou-etal-2025-mergeme,hu2022lora"></d-cite>, but with a more interpretable notion of what is being combined.
 
-#### Structured Reasoning Controllers
-
-To make these modules work together, we need internal controllers that play a role analogous to the planner at the system level. A *structured reasoning controller* would guide the flow of information between modules, enforcing **process over output** <d-cite key="lightman2023lets,uesato2022solving"></d-cite>.
+**Structured Reasoning Controllers**. To make these modules work together, we need internal controllers that play a role analogous to the planner at the system level. A *structured reasoning controller* would guide the flow of information between modules, enforcing **process over output** <d-cite key="lightman2023lets,uesato2022solving"></d-cite>.
 
 Instead of letting information diffuse across all layers, the controller would explicitly route data from a perception module (to bind entities) to a logic module (to infer relationships), and only then to a language module (to verbalize the conclusion) <d-cite key="andreas2016neural,hou2024vision"></d-cite>. This reduces the temptation to rely on shortcuts or label priors and aligns the model's internal computation with the stepwise structure of the task.
 
@@ -308,9 +268,7 @@ High-quality human text is finite, and much of it has already been scraped. Synt
 
 The planner–executor architecture in previous section suggests a different strategy. Instead of treating the model as a storyteller, we treat it as a *generator of programs and simulations*. Rather than hallucinating a fact, the LLM writes code or constructs an API call that *derives* that fact from an external system <d-cite key="long-etal-2024-llms,Huang_Lipovetzky_Cohn_2025"></d-cite>. Ground truth comes from execution, not from the model's own weights.
 
-#### The Mechanism: From Text to Trajectories
-
-This perspective turns training data from static text into *causal trajectories*: records of successful interactions with the world. The pattern recurs across domains:
+**The Mechanism: From Text to Trajectories**. This perspective turns training data from static text into *causal trajectories*: records of successful interactions with the world. The pattern recurs across domains:
 
   * **Digital APIs and tools.** To create fine-tuning data for a new API, the model can generate a user query, write the corresponding code or JSON call, execute it, and record the result. Each example is a clean `(Prompt, Code, Answer)` triplet where the answer is guaranteed by the tool, not by the model's guess <d-cite key="long-etal-2024-llms,SuperAnnotateFinetuning"></d-cite>.
   * **Simulated physical worlds.** Acting as a “director” for physics engines such as Unity or Blender, an LLM can script scenes, vary lighting, pose, and texture, and automatically collect perfectly labeled image–annotation pairs. This allows us to target rare or dangerous scenarios that are hard to observe in the real world <d-cite key="wang2024survey,chen2025symbolic"></d-cite>.
@@ -318,9 +276,7 @@ This perspective turns training data from static text into *causal trajectories*
 
 In all three cases, we are no longer training on what people happened to write. We are training on what *worked*: trajectories where a plan, encoded as symbolic code, succeeded when executed.
 
-#### The Curriculum: Agentic Continual Pre-training
-
-Once we can generate large numbers of automatic trajectories, a natural next step is to use them to continually refine the base model itself. *Agentic Continual Pre-training (Agentic CPT)* <d-cite key="su2025scaling"></d-cite> immerses an LLM in synthetic experiences that reflect the full agent loop: planning, acting, observing, and correcting.
+**The Curriculum: Agentic Continual Pre-training.** Once we can generate large numbers of automatic trajectories, a natural next step is to use them to continually refine the base model itself. *Agentic Continual Pre-training (Agentic CPT)* <d-cite key="su2025scaling"></d-cite> immerses an LLM in synthetic experiences that reflect the full agent loop: planning, acting, observing, and correcting.
 Instead of optimizing only for next-token prediction, the model is trained to internalize the *agentic workflow*:
 
 1.  **Multi-turn tool use.** Learning that the output of Tool A (e.g., search) should be fed into Tool B (e.g., code or analysis), and that actions have consequences over multiple steps.
@@ -333,9 +289,7 @@ This shifts the training signal from *what people say* to *what successful agent
 
 Even with better data, there is a second problem at inference time: the model's internal logic remains probabilistic. A large LLM predicts the next token, not the next true statement <d-cite key="sistla2025towards,miranda2025veribench"></d-cite>. Chain-of-Thought prompting helps us see its reasoning, but it does not guarantee that the reasoning is valid. The model can produce beautiful, step-by-step arguments that are subtly wrong. In high-stakes settings (e.g., medicine, law, mathematics), these “logical hallucinations” are unacceptable <d-cite key="huang2025survey,zhang2025siren"></d-cite>.
 
-The final step in the neuro-symbolic story is to apply the same translation machinery used for tools to the model's *reasoning itself*.
-
-#### Theoretical Foundations: From Natural Language to Formal Logic
+**Theoretical Foundations: From Natural Language to Formal Logic**. The final step in the neuro-symbolic story is to apply the same translation machinery used for tools to the model's *reasoning itself*.
 
 The core idea is simple: let the LLM reason in natural language, but verify its reasoning in a formal system as shown in Figure 4. Concretely, we translate the model's explanations into a symbolic language such as first-order logic or the tactic language of a proof assistant like Lean <d-cite key="Yang2023LeanDojo,lee2025symba,pan2023logic"></d-cite>.
 
@@ -346,9 +300,7 @@ This idea has deep roots. Richard Montague's work in the 1970s argued that natur
   <figcaption style="font-size: 1em;">Figure 4: The verification loop. LLMs propose a natural language argument. A formalizer translates it into logic, which is then checked by a theorem prover. Feedback from the prover guides correction.</figcaption>
 </figure>
 
-#### The Verification Workflow
-
-Putting this into practice suggests a verification loop:
+**The Verification Workflow.** Putting this into practice suggests a verification loop:
 
 1.  **Generation (conjecture).** The LLM solves a problem and outputs its reasoning in natural language. At this point, the explanation is treated as a *proposal*, not a certified proof.
 2.  **Formalization (translation).** A specialized “formalizer” model parses the explanation and translates each step into a formal claim, such as a Lean proposition or a first-order logic formula <d-cite key="wang2025malot,quan-etal-2024-verification,toroghi-etal-2024-verifiable"></d-cite>.
